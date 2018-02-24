@@ -1,6 +1,5 @@
 //TO DO
 //CONSOLE LOG RESPONSE
-//CONNECTION TO DATABASE REALLY WORKING??
 
 
 //dependencies 
@@ -61,6 +60,7 @@ function customerInteraction() {
         console.log(results, "flyingpigs");
         var products = dataProducts(results);
         console.log(products, "lasercats");
+        console.log(results);
         // once  items shown, prompt the user for which item they want
         inquirer
             .prompt(questions(products))

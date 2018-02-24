@@ -1,9 +1,6 @@
 module.exports =
     function questions(products) {
-        return
-
-
-        [{
+        return [{
 
                 name: "choice",
                 type: "rawlist",
