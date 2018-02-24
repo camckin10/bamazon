@@ -32,8 +32,8 @@ connection.connect(function(err) {
 function queryAllTable() {
     connection.query("SELECT * FROM bamazon.products", function(err, res) {
         for (var i = 0; i < res.length; i++) {
-            console.log(res[i].item_id + " | " + res[i].product_name + " | " + res[i].department_name);
-            console.log(+" | " + res[i].price + res[i].stock_quantity);
+            console.log("saturday", res[i].item_id + " | " + res[i].product_name + " | " + res[i].department_name +
+                " | " + res[i].price + " | " + res[i].stock_quantity);
         }
         console.log("-----------------------------------");
     });
@@ -57,10 +57,10 @@ function customerInteraction() {
     // query the database for all items being sold
     connection.query("SELECT * FROM bamazon.products", function(err, results) {
         if (err) throw err;
-        console.log(results, "flyingpigs");
+        console.log("flyingpigs", results);
         var products = dataProducts(results);
-        console.log(products, "lasercats");
-        console.log(results);
+        console.log("lasercats", products);
+        //console.log(results);
         // once  items shown, prompt the user for which item they want
         inquirer
             .prompt(questions(products))
@@ -77,7 +77,7 @@ function customerInteraction() {
                 if (chosenProduct.correct_product < parseInt(answer.price)) {
                     // if there is enough product, let the user know, and begin again
                     connection.query(
-                        "UPDATE auctions SET ? WHERE ?", [{
+                        "UPDATE bamazon.products SET ? WHERE ?", [{
                                 correct_product: answer.price
                             },
                             {
@@ -88,18 +88,20 @@ function customerInteraction() {
                             if (error) throw err;
                             console.log("Your order has been placed!");
                             //start();
-                            customerInteraction();
+                            //customerInteraction();
+                            //orderAndAdd();
                         }
                     );
                 } else {
                     // bid wasn't high enough, so apologize and start over
                     console.log("Insufficent quantity!");
                     //start();
-                    customerInteraction();
+                    //customerInteraction();
                 }
             });
     });
 }
+//orderAndAdd();
 //call function to test if it runs
 //customerInteraction();
 

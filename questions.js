@@ -16,7 +16,7 @@ module.exports =
             {
                 name: "name",
                 type: "input",
-                message: "What is the name of the product?"
+                message: "How many units of the product would you like to buy?"
             }
         ]
 
