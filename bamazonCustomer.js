@@ -1,6 +1,6 @@
 //TO DO
-//CONSOLE LOG RESPONSE
-
+//UPDATE DATABASE ON MYSQL--create a function that logs the response
+//and then prints the updated information 
 
 //dependencies 
 var mysql = require("mysql");
